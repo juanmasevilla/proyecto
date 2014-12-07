@@ -13,22 +13,22 @@
                 while($fichero=readdir($f)) {
                     if (is_dir($fichero) && $fichero!="." && $fichero!="..") {
                         ?>
-                            </div>
+<!--                            </div>
                             <div id="menu">
                                 <ul>
-                                  <li><span><?php echo $fichero?></span>
-                                    <?php
+                                  <li><span><? echo $fichero?></span>
+                                    <?
                                         $f2 = opendir("./ejercicios/".$fichero);
                                         while($fichero2=readdir($f2)) {
                                     ?>
                                     <ul>
-                                      <li><span><a href="./ejercicios/<?php echo $fichero?>/<?php echo $fichero2?>"><?php echo $fichero2?></a></span></li>
-                                      <?php
+                                      <li><span><a href="./ejercicios/<? echo $fichero?>/<? echo $fichero2?>"><? echo $fichero2?></a></span></li>
+                                      <?
                                         }
                                       ?>
                                     </ul>
                                   </li>
-                                </ul>
+                                </ul>-->
                         <?php
                     }else
                         if (!is_dir($fichero) && $fichero!="." && $fichero!=".."){
