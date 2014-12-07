@@ -13,7 +13,7 @@
                 while($fichero=readdir($f)) {
                     if (is_dir($fichero) && $fichero!="." && $fichero!="..") {
                         ?>
-<!--                            </div>
+                        <!--</div>
                             <div id="menu">
                                 <ul>
                                   <li><span><php echo $fichero?></span>
