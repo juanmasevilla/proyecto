@@ -47,3 +47,4 @@
         </div>
     </body>
 </html>
+<!--No se porque la funcion isdir() no me funciona para distinguir cuando es directorio y cuando no-->
