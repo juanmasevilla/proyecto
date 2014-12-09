@@ -1,8 +1,10 @@
+<?php inlude("modelo.php")?>
+
 <?php
 
 function inicio() {
-    if (comprobar($_GET['usuario']) == 1) {
-        if (comprobar2() == 1) {
+    if (existe($_GET['usuario']) == 'true') {
+        if (claveCorrecta($_GET['usuario'], $_GET['clave']) == 'true') {
             session_start();
             session_name('concurso');
             session_id();
