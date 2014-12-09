@@ -3,7 +3,7 @@
 		<title>Vista</title>
 	</head>
 	<body>
-		<h1>Windows Vista</h1>
-		<h2>Leyendo MVC</h2>
+		<h1>Hola mundo</h1>
+		<h2>Segundo</h2>
 	</body>
 </html>
