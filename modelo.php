@@ -1,6 +1,5 @@
 <?php
 
-include 'controlador.php';
 
 function existe($usuario) {
     $existe = false;

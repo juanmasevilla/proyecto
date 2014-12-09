@@ -1,4 +1,6 @@
-<?php include("controlador.php"); ?>
+<?php
+require('controlador.php');
+?>
 
 <form>
     <input type="text" name="usuario"/>
