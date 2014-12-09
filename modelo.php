@@ -3,7 +3,7 @@
 include 'controlador.php';
 function existe($usuario) {
     $existe = false;
-    $c = mysql_connect("localhost", "carmen", "carmen");
+    $c = mysql_connect("localhost", "pepe", "pepa");
     mysql_select_db("concursoQuiz", $c);
     $q1 = mysql_query("select * from usuarios where usuario='" . $usuario . "'", $c);
 
@@ -15,7 +15,7 @@ function existe($usuario) {
 
 function claveCorrecta($usu, $contra) {
     $correcto = false;
-    $c = mysql_connect("localhost", "carmen", "carmen");
+    $c = mysql_connect("localhost", "pepe", "pepe");
     mysql_select_db("concursoQuiz", $c);
     $q1 = mysql_query("select * from usuarios where usuario='" . $usu . "' AND clave='" . $contra . "'", $c);
     if (mysql_affected_rows($c) == 1) {
