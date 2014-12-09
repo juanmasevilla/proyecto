@@ -23,5 +23,6 @@ function inicio() {
         echo "<a href='" . $_SERVER['HTTP_REFERER'] . "'>VOLVER</a>";
     }
 }
+echo "hola";
 
 ?>
