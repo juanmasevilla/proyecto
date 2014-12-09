@@ -1,4 +1,6 @@
 <?php
+
+include 'controlador.php';
 function existe($usuario) {
     $existe = false;
     $c = mysql_connect("localhost", "carmen", "carmen");
