@@ -1,3 +1,4 @@
+<?php include ('controlador.php'); ?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -11,7 +12,7 @@ and open the template in the editor.
         <link href="./css/centrado.css" type="text/css" title="centrado" rel="stylesheet" />
     </head>
     <body>
-        <form action="visor1.php" class="centrado" method="post" accept-charset="iso-8859-1">
+        <form action="vista.php" class="centrado" method="post" accept-charset="iso-8859-1">
             Nombre:<br>
             <input type="text" name="nombre">
             <br>
@@ -49,7 +50,6 @@ and open the template in the editor.
     </body>
 </html>
 <?php 
-include ('controlador.php');
 echo  $_REQUEST['nombre'],"<br>";
 echo  $_REQUEST['direccion'],"<br>";
 echo  $_REQUEST['telefono'],"<br>";
