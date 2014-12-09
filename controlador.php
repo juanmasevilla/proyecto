@@ -1,5 +1,4 @@
-<?php include("modelo.php")?>
-<?php include("vista.php")?>
+<?php include("modelo.php"); ?>
 
 <?php
 

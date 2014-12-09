@@ -1,9 +1,9 @@
-<?php include("controlador.php")?>
+<?php include("modelo.php"); ?>
 
 <form>
     <input type="text" name="usuario"/>
     <input type="text" name="clave"/>
-    <input type="submit"/>
+
 </form>
 
 <?php
