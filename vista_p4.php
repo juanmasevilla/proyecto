@@ -4,11 +4,11 @@
     <head>
         <meta charset="UTF-8">
         <title><?php echo $titulo ?></title>
-        <link href="./css/centrado.css" type="text/css" title="centrado" rel="stylesheet" />
+        <link href="./css/estilo.css" type="text/css" title="centrado" rel="stylesheet" />
     </head>
     <body>
         <div class="centrado">
-            <img src="images/p4.jpg" height="400" width="400"/><br>
+            <img src="images/p4.jpg"/><br>
             PREGUNTA 4: &#191;Donde se encuentra este monumento&#63;<br>
             <?php
             $pagina = "p4";
