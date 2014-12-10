@@ -9,7 +9,7 @@
     <body>
         <div class="centrado">
             <img src="images/p4.jpg"/><br>
-            PREGUNTA 4: &#191;Donde se encuentra este monumento&#63;<br>
+            PREGUNTA 4: ¿Donde se encuentra este monumento?<br>
             <?php
             $pagina = "p4";
             include("formulario_estandar.php")
