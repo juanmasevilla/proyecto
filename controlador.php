@@ -19,7 +19,7 @@ if (isset($_GET['usuario']) == 'true' && isset($_GET['clave']) == 'true') {
     }else if ($u == 'false'){
         header('Location: registro.php');
     }else if($u == 'true' && $c == 'false'){
-        header('Location: vistaC.php');
+        header('Location: index.php');
     }
 }
 
