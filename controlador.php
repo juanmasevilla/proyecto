@@ -82,4 +82,5 @@ if ($_SESSION['p5'] == "ANDALUCIA") {
 }
 header('Location: vista_final.php');
 }
+
 ?>
