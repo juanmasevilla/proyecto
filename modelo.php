@@ -23,4 +23,6 @@ function claveCorrecta($usu, $contra) {
     }
     return $correcto;
 }
+
+//prueba
 ?>
