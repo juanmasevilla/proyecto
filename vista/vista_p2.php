@@ -5,9 +5,10 @@
         <title><?php echo $titulo ?></title>
     </head>
     <body>
-        <img src="images/p1.jpg" height="400" width="400"/><!--No esta subida la imagen--><br>
-        PREGUNTA 1: &#191;Donde se encuentra este monumento&#63;<br>
-        <?php $pagina="vista_p2.php";
+        <img src="p2.jpg" height="400" width="400"/><br>
+        PREGUNTA 2: &#191;Donde se encuentra este monumento&#63;<br>
+        <?php
+        $pagina = "vista_p3.php";
         include("formulario_estandar.php")
         ?>
     </body>
