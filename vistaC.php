@@ -1,13 +1,9 @@
-<?php
-require('controlador.php');
-?>
 
-<form>
+
+<form action="controlador.php">
     <input type="text" name="usuario"/>
     <input type="text" name="clave"/>
-    <input type="submit"/>
+    <input type="submit" name="clave"/>
+
 </form>
 
-<?php
-inicio();
-?>
