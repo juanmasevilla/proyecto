@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title><?php echo $titulo ?></title>
-        <link href="./css/estilo.css" type="text/css" title="centrado" rel="stylesheet" />
+        <link href="./css/estilo.css" type="text/css" title="css" rel="stylesheet" />
     </head>
     <body>
         <div class="centrado">
