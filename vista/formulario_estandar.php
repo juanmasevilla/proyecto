@@ -1,4 +1,4 @@
-<form action="<?php $pagina?>" method="get">
+<form action="<?php echo $pagina?>" method="get">
             <select name="p1">
                 <option>MADRID</option>
                 <option>ANDALUCIA</option>
