@@ -1,5 +1,5 @@
 <form action="controlador.php" method="get">
-            <select name="p1">
+            <select name="<?php echo $pagina?>">
                 <option>MADRID</option>
                 <option>ANDALUCIA</option>
                 <option>NAVARRA</option>
