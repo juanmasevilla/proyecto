@@ -1,5 +1,13 @@
-<?php
-
-phpinfo();
-
-?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><?php echo $titulo ?></title>
+    </head>
+    <body>
+        <form action="controlador.php" method="get">
+            <input type="text" name="usuario"/>
+            <input type="text" name="clave"/>
+            <input type="submit"/>
+        </form>
+    </body>
+</html>   
