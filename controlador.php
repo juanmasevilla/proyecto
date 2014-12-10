@@ -2,7 +2,7 @@
 
 require('modelo.php');
         session_start();
-        session_name('');
+        session_name();
         session_id();
 
 

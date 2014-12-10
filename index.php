@@ -1,3 +1,4 @@
+<?php include("controlador.php") ?>
 <!DOCTYPE html>
 <html>
     <head>
