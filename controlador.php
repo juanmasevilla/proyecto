@@ -1,11 +1,8 @@
 <?php
 
 require('modelo.php');
-        session_start();
-        session_name();
-        session_id();
 
-
+$titulo="Concurso de preguntas";
 
 if (isset($_GET['usuario']) == 'true' && isset($_GET['clave']) == 'true') {
     $u = existe($_GET['usuario']);
@@ -91,7 +88,7 @@ if ($_SESSION['p5'] == "ANDALUCIA") {
 }
 header('Location: vista_final.php');
 }
-$titulo="Concurso de preguntas";
+
 
 function guardaFichero(){
     $f7 = fopen("partidas.txt", "a");
