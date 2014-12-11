@@ -1,13 +1,16 @@
 <?php
-
+$server_mysql="localhost";
+$usuario_mysql="pepe";
+$contraseña_mysql="pepa";
+$database_mysql="concursoQuiz";
 session_start();
 session_name("concurso");
 session_id();
 
 function existe($usuario) {
     $existe = 'false';
-    $c = mysql_connect("localhost", "pepe", "pepa");
-    mysql_select_db("concursoQuiz", $c);
+    $c = mysql_connect($server_mysql, $usuario_mysql, $contraseña_mysql);
+    mysql_select_db($database_mysql, $c);
     $q1 = mysql_query("SELECT * FROM usuarios WHERE usuario='" . $usuario . "'", $c);
 
     if (mysql_affected_rows($c) == 1) {
@@ -18,8 +21,8 @@ function existe($usuario) {
 
 function claveCorrecta($usu, $contra) {
     $correcto = 'false';
-    $c = mysql_connect("localhost", "pepe", "pepa");
-    mysql_select_db("concursoQuiz", $c);
+    $c = mysql_connect($server_mysql, $usuario_mysql, $contraseña_mysql);
+    mysql_select_db($database_mysql, $c);
     $q1 = mysql_query("SELECT * FROM usuarios WHERE usuario='" . $usu . "' AND clave='" . $contra . "'", $c);
     if (mysql_affected_rows($c) == 1) {
         $correcto = 'true';
@@ -29,8 +32,8 @@ function claveCorrecta($usu, $contra) {
 
 function insertar() {
     $insertado = "false";
-    if ($c = mysql_connect("localhost", "pepe", "pepa")) {
-        if (mysql_select_db("concursoQuiz", $c)) {
+    if ($c = mysql_connect($server_mysql, $usuario_mysql, $contraseña_mysql)) {
+        if (mysql_select_db($database_mysql, $c)) {
             if (mysql_query("INSERT respuestas (id,usuario, p1, p2, p3, p4, p5, tiempo, correctas, incorrectas) VALUES ('null','" . $usuario . "','" . $_SESSION['r1'] . "','" . $_SESSION['r2'] . "','" . $_SESSION['r3'] . "','" . $_SESSION['r4'] . "','" . $_SESSION['r5'] . "','" . $tiempoTotal . "', $correctas,$incorrectas)", $c)) {
                 $insertado = "true";
                         echo "hola";
@@ -41,8 +44,8 @@ function insertar() {
 }
 
 function mejores() {
-    if ($c = mysql_connect("localhost", "pepe", "pepa")) {
-        if (mysql_select_db("concursoQuiz", $c)) {
+    if ($c = mysql_connect($server_mysql, $usuario_mysql, $contraseña_mysql)) {
+        if (mysql_select_db($database_mysql, $c)) {
             $q1 = mysql_query("SELECT distinct(usuario), correctas FROM respuestas
             ORDER BY correctas DESC, tiempo ASC
             LIMIT 5;", $c);
