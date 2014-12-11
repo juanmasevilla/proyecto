@@ -10,6 +10,8 @@
         <div class="centrado">
             <h1><?php echo $titulo ?></h1>
             <h3 class="horizontal">RESULTADOS</h3>
+            <p>correctas: <?php echo $_SESSION['aciertos'] ?></p>
+            <p>incorrectas: <?php echo $_SESSION['fallos'] ?></p>
             <p class="horizontal">usuario: <?php echo $_SESSION['usuario'] ?></p>
             <p>PREGUNTA 1, RESPUESTA <?php echo $_SESSION['p1'] ?> C/I: <?php echo $_SESSION['r1'] ?></p>
             <p>PREGUNTA 2, RESPUESTA <?php echo $_SESSION['p2'] ?> C/I: <?php echo $_SESSION['r2'] ?></p>
