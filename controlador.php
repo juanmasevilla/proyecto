@@ -15,6 +15,7 @@ if (isset($_GET['usuario']) == 'true' && isset($_GET['clave']) == 'true') {
         $_SESSION['clave'] = $_GET['clave'];
         $_SESSION['fallos'] = 0;
         $_SESSION['aciertos'] = 0;
+        $_SESSION['tiempo1']=time();
         header('Location: vista_p1.php');
     }else if ($u == 'false'){
         header('Location: registro.php');
@@ -77,10 +78,42 @@ $_SESSION['r5']='i';
 if ($_SESSION['p5'] == "ANDALUCIA") {
     $_SESSION['aciertos']++;
     $_SESSION['r5']='c';
+    $_SESSION['tiempo2']=time();
+    $tiempoTotal=$_SESSION['tiempo2']-$_SESSION['tiempo1'];
+    if(insertar()=='true'){
+        guardaFichero();
+    }
 } else {
     $_SESSION['fallos']++;
 }
 header('Location: vista_final.php');
 }
 $titulo="Concurso de preguntas";
+
+function guardaFichero(){
+    $f7 = fopen("partidas.txt", "a");
+fwrite($f7, "usuario: " . $_SESSION['usuario']."<br>");
+fwrite($f7,"correctas: " . $correctas."<br>");
+fwrite($f7,"incorrectas: " . $incorrectas."<br>");
+fwrite($f7,"PREGUNTA 1, RESPUESTA ".$_SESSION['p1']." C/I: ". $p1."<br>");
+fwrite($f7,"PREGUNTA 2, RESPUESTA ".$_SESSION['p2']." C/I: ". $p2."<br>");
+fwrite($f7,"PREGUNTA 3, RESPUESTA ".$_SESSION['p3']." C/I: ". $p3."<br>");
+fwrite($f7,"PREGUNTA 4, RESPUESTA ".$_SESSION['p4']." C/I: ". $p4."<br>");
+fwrite($f7,"PREGUNTA 5, RESPUESTA ".$_SESSION['p5']." C/I: ". $p5."<br>");
+fwrite($f7,"----------------------------------------------"."<br>");
+fclose($f7);
+}
+
+function saberMejores(){
+    $mejor=mejores();
+    echo "<br><h1>LOS MEJORES RESULTADOS SON:</h1>";
+echo "<table align=center border=2>";
+while ($registro = mysql_fetch_row($mejor)){
+       echo "<tr>";
+       foreach($registro  as $clave){
+       echo "<td>",$clave,"</td>";
+ }
+}
+}
+
 ?>
