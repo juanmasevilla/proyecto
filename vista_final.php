@@ -17,7 +17,7 @@
             <p>PREGUNTA 4, RESPUESTA <?php echo $_SESSION['p4'] ?> C/I: <?php echo $_SESSION['r4'] ?></p>
             <p>PREGUNTA 5, RESPUESTA <?php echo $_SESSION['p5'] ?> C/I: <?php echo $_SESSION['r5'] ?></p>
             <p class="horizontal">-----------------------------------</p>
-            <?php //saberMejores()?><!-- manda error en linea 108 del controlador.php, undefined "mejores()" -->
+            <?php saberMejores()?>
         </div>
     </body>
 </html>
