@@ -8,9 +8,10 @@
     </head>
     <body>
         <div class="centrado">
-            <img src="images/p<?php echo $pagina ?>.jpg"/><br>
-            PREGUNTA <?php echo $pagina ?>: ¿Donde se encuentra este monumento?<br>
-            <form action="controlador.php" method="get">
+            <h1 class="horizontal"><?php echo $titulo ?></h1>
+            <img src="images/p<?php echo $pagina ?>.jpg"/>
+            <p class="horizontal">PREGUNTA <?php echo $pagina ?>: ¿Donde se encuentra este monumento?</p>
+            <form class="horizontal" action="controlador.php" method="get">
                 <select name="p<?php echo $pagina ?>">
                     <option>MADRID</option>
                     <option>ANDALUCIA</option>

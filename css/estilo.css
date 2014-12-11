@@ -1,9 +1,12 @@
 @charset "UTF-8";
-    .centrado{
-         position: absolute; top:50%; left:50%; transform: translate(-50%,-50%); 
-    }
-    img{
-         
-        height: 400px;
-        width: 400px;
-    }
+.centrado{
+    position: absolute; top:50%; left:50%; transform: translate(-50%,-50%); 
+}
+.horizontal {
+    text-align: center;
+}
+img{
+
+    height: 400px;
+    width: 400px;
+}
