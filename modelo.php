@@ -14,8 +14,8 @@ function conexion_mysql() {
 
 function conexion_database($c) {
     $database_mysql = "concursoQuiz";
-    mysql_select_db($database_mysql, $c);
-    return $c;
+    $db=mysql_select_db($database_mysql, $c);
+    return $db;
 }
 
 function existe($usuario) {
