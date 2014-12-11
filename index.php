@@ -7,10 +7,13 @@
         <link href="./css/estilo.css" type="text/css" title="css" rel="stylesheet" />
     </head>
     <body>
-        <form action="controlador.php" class="centrado" method="get">
-            <p>Usuario: <input type="text" name="usuario"/></p>
-            <p>Contraseña: <input type="text" name="clave"/></p>
-            <input type="submit"/>
-        </form>
+        <div class="centrado">
+            <h1 class="horizontal">Login</h1>
+            <form action="controlador.php" method="get">
+                <label for="Usuario">Usuario:</label> <input type="text" name="usuario" id="Usuario"/></p>
+                <label for="Contraseña">Contraseña:</label> <input type="text" id="Contraseña" name="clave"/></p>
+                <p class="horizontal"><input type="submit"/></p>
+            </form>
+        </div>
     </body>
 </html>
