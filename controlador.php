@@ -77,7 +77,10 @@ if ($_SESSION['p5'] == "ANDALUCIA") {
     $_SESSION['r5']='c';
     $_SESSION['tiempo2']=time();
     $tiempoTotal=$_SESSION['tiempo2']-$_SESSION['tiempo1'];
-    if(insertar()=='true'){
+
+    $p=insertar();
+    echo $p;
+    if($p=='true'){
         guardaFichero();
         echo "<h1> SE HA GUARDADO LA PARTIDA</h1>";
     }else{

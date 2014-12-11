@@ -28,11 +28,12 @@ function claveCorrecta($usu, $contra) {
 }
 
 function insertar() {
-    $insertado = false;
+    $insertado = "false";
     if ($c = mysql_connect("localhost", "pepe", "pepa")) {
         if (mysql_select_db("concursoQuiz", $c)) {
             if (mysql_query("INSERT respuestas (id,usuario, p1, p2, p3, p4, p5, tiempo, correctas, incorrectas) VALUES ('null','" . $usuario . "','" . $_SESSION['r1'] . "','" . $_SESSION['r2'] . "','" . $_SESSION['r3'] . "','" . $_SESSION['r4'] . "','" . $_SESSION['r5'] . "','" . $tiempoTotal . "', $correctas,$incorrectas)", $c)) {
-                $insertado = true;
+                $insertado = "true";
+                        echo "hola";
             }
         }
     }
