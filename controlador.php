@@ -6,6 +6,12 @@ $titulo="Concurso de preguntas";
 $opciones = array("MADRID", "ANDALUCIA", "NAVARRA", "MURCIA", "GALICIA");
 $pregunta = "¿Donde se encuentra este monumento?";
 
+if (isset($_GET['reg_usuario']) == 'true' && isset($_GET['reg_clave']) == 'true') {
+    if(insertarUs=='true'){
+        header('Location: index.php');
+    }
+}
+
 if (isset($_GET['usuario']) == 'true' && isset($_GET['clave']) == 'true') {
     $u = existe($_GET['usuario']);
     $c = claveCorrecta($_GET['usuario'], $_GET['clave']);
