@@ -23,7 +23,7 @@ if (isset($_GET['usuario']) == 'true' && isset($_GET['clave']) == 'true') {
         $_SESSION['tiempo1']=time();
         header('Location: vista_p1.php');
     }else if ($u == 'false'){
-        header('Location: registro.php');
+        header('Location: vista_registro.php');
     }else if($u == 'true' && $c == 'false'){
         header('Location: index.php');
     }
