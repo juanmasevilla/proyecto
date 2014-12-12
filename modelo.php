@@ -40,6 +40,7 @@ function claveCorrecta($usu, $contra) {
 }
 
 function insertar() {
+    $insertado = 'false';
     $r1 = $_SESSION["r1"];
     $r2 = $_SESSION["r2"];
     $r3 = $_SESSION["r3"];
@@ -55,10 +56,10 @@ function insertar() {
     $consulta = "INSERT INTO respuestas(id, usuario, p1,p2,p3,p4,p5,tiempo,correctas,incorrectas) VALUES('null','".$usuario."','".$r1."','".$r2."','".$r3."','".$r4."','".$r5."','".$tiempoTotal."',".$aciertos.",".$fallos.")";
     if (mysql_query($consulta, $c)) {
         $insertado = "true";
-        echo "Insercion correcta<br>";
     } else {
         echo mysql_errno($c) . ": " . mysql_error($c) . "\n";
     }
+    return $insertado;
 }
 
 function mejores() {
@@ -69,6 +70,17 @@ function mejores() {
             LIMIT 5;", conexion_mysql());
         }
     }
+}
+
+function insertarUs($usu, $pass){
+    $insertado = 'false';
+    $consulta = "INSERT INTO usuarios VALUES('".$usu."','".$pass."')";
+    $c = conexion_mysql();
+    conexion_database($c);
+    if (mysql_query($consulta,$c)) {
+        $insertado = 'true';
+    }
+    return $insertado;
 }
 
 ?>
