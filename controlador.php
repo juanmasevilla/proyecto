@@ -7,8 +7,11 @@ $opciones = array("MADRID", "ANDALUCIA", "NAVARRA", "MURCIA", "GALICIA");
 $pregunta = "¿Donde se encuentra este monumento?";
 
 if (isset($_GET['reg_usuario']) == 'true' && isset($_GET['reg_clave']) == 'true') {
-    if(insertarUs=='true'){
+    if(insertarUs($_GET['reg_usuario'], $_GET['reg_clave'])=='true'){
         header('Location: index.php');
+    }else{
+        header('Location: vista_registro.php');
+        echo "El usuario ya existe";
     }
 }
 
@@ -98,7 +101,7 @@ $_SESSION['tiempo2']=time();
     }else{
          echo "<h1> ERROR: NO SE HA GUARDADO LA PARTIDA</h1>";
     }
-//header('Location: vista_final.php');
+header('Location: vista_final.php');
 }
 
 
