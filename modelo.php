@@ -45,7 +45,8 @@ function insertar() {
         if (mysql_select_db(conexion_database(conexion_mysql()), conexion_mysql())) {
             if (mysql_query("INSERT respuestas (id,usuario, p1, p2, p3, p4, p5, tiempo, correctas, incorrectas) VALUES ('null','" . $usuario . "','" . $_SESSION['r1'] . "','" . $_SESSION['r2'] . "','" . $_SESSION['r3'] . "','" . $_SESSION['r4'] . "','" . $_SESSION['r5'] . "','" . $tiempoTotal . "', $correctas,$incorrectas)", conexion_mysql())) {
                 $insertado = "true";
-                echo "hola";
+            }else{
+                echo "Fallo, en el insert";
             }
         }
     }
