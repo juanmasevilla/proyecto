@@ -83,8 +83,12 @@ $_SESSION['r5']='i';
 if ($_SESSION['p5'] == "ANDALUCIA") {
     $_SESSION['aciertos']++;
     $_SESSION['r5']='c';
-    $_SESSION['tiempo2']=time();
-    $tiempoTotal=$_SESSION['tiempo2']-$_SESSION['tiempo1'];
+
+} else {
+    $_SESSION['fallos']++;
+}
+$_SESSION['tiempo2']=time();
+    $_SESSION['tiempoTotal']=$_SESSION['tiempo2']-$_SESSION['tiempo1'];
 
     $p=insertar();
     echo $p;
@@ -94,10 +98,7 @@ if ($_SESSION['p5'] == "ANDALUCIA") {
     }else{
          echo "<h1> ERROR: NO SE HA GUARDADO LA PARTIDA</h1>";
     }
-} else {
-    $_SESSION['fallos']++;
-}
-header('Location: vista_final.php');
+//header('Location: vista_final.php');
 }
 
 

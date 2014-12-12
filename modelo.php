@@ -14,7 +14,7 @@ function conexion_mysql() {
 
 function conexion_database($c) {
     $database_mysql = "concursoQuiz";
-    $db=mysql_select_db($database_mysql, $c);
+    $db = mysql_select_db($database_mysql, $c);
     return $db;
 }
 
@@ -40,17 +40,25 @@ function claveCorrecta($usu, $contra) {
 }
 
 function insertar() {
-    $insertado = "false";
-    if (conexion_mysql()) {
-        if (mysql_select_db(conexion_database(conexion_mysql()), conexion_mysql())) {
-            if (mysql_query("INSERT respuestas (id,usuario, p1, p2, p3, p4, p5, tiempo, correctas, incorrectas) VALUES ('null','" . $usuario . "','" . $_SESSION['r1'] . "','" . $_SESSION['r2'] . "','" . $_SESSION['r3'] . "','" . $_SESSION['r4'] . "','" . $_SESSION['r5'] . "','" . $tiempoTotal . "', $correctas,$incorrectas)", conexion_mysql())) {
-                $insertado = "true";
-            }else{
-                echo "Fallo, en el insert";
-            }
-        }
+    $r1 = $_SESSION["r1"];
+    $r2 = $_SESSION["r2"];
+    $r3 = $_SESSION["r3"];
+    $r4 = $_SESSION["r4"];
+    $r5 = $_SESSION["r5"];
+    $usuario = $_SESSION['usuario'];
+    $tiempoTotal = $_SESSION['tiempoTotal'];
+    $aciertos = $_SESSION['aciertos'];
+    $fallos = $_SESSION['fallos'];
+    echo $correctas.",".$incorrectas."<br>";
+    $c = mysql_connect("localhost", "pepe", "pepa");
+    mysql_select_db("concursoQuiz", $c);
+    $consulta = "INSERT INTO respuestas(id, usuario, p1,p2,p3,p4,p5,tiempo,correctas,incorrectas) VALUES('null','".$usuario."','".$r1."','".$r2."','".$r3."','".$r4."','".$r5."','".$tiempoTotal."',".$aciertos.",".$fallos.")";
+    if (mysql_query($consulta, $c)) {
+        $insertado = "true";
+        echo "Insercion correcta<br>";
+    } else {
+        echo mysql_errno($c) . ": " . mysql_error($c) . "\n";
     }
-    return $insertado;
 }
 
 function mejores() {
