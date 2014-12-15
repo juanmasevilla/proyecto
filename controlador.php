@@ -3,8 +3,8 @@
 require('modelo.php');
 
 $titulo="Concurso de preguntas";
-$opciones = array("MADRID", "ANDALUCIA", "NAVARRA", "MURCIA", "GALICIA");
 $pregunta = "¿Donde se encuentra este monumento?";
+$opciones = array("MADRID", "ANDALUCIA", "NAVARRA", "MURCIA", "GALICIA");
 
 if (isset($_GET['reg_usuario']) == 'true' && isset($_GET['reg_clave']) == 'true') {
     if(insertarUs($_GET['reg_usuario'], $_GET['reg_clave'])=='true'){
