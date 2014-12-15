@@ -51,8 +51,8 @@ function insertar() {
     $aciertos = $_SESSION['aciertos'];
     $fallos = $_SESSION['fallos'];
     echo $correctas.",".$incorrectas."<br>";
-    $c = mysql_connect("localhost", "pepe", "pepa");
-    mysql_select_db("concursoQuiz", $c);
+    $c = conexion_mysql();
+    conexion_database($c);
     $consulta = "INSERT INTO respuestas(id, usuario, p1,p2,p3,p4,p5,tiempo,correctas,incorrectas) VALUES('null','".$usuario."','".$r1."','".$r2."','".$r3."','".$r4."','".$r5."','".$tiempoTotal."',".$aciertos.",".$fallos.")";
     if (mysql_query($consulta, $c)) {
         $insertado = "true";
@@ -63,10 +63,10 @@ function insertar() {
 }
 
 function mejores() {
-                $c = mysql_connect("localhost", "pepe", "pepa");
-    mysql_select_db("concursoQuiz", $c);
+    $c = conexion_mysql();
+    conexion_database($c);
     if ($c) {
-        if (mysql_select_db("concursoQuiz", $c)) {
+        if (conexion_database($c)) {
             $q1 = mysql_query("SELECT distinct(usuario), correctas FROM respuestas
             ORDER BY correctas DESC, tiempo ASC
             LIMIT 5", conexion_mysql());
