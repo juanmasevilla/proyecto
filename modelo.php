@@ -63,11 +63,14 @@ function insertar() {
 }
 
 function mejores() {
-    if (conexion_mysql()) {
-        if (mysql_select_db(conexion_database(conexion_mysql()), conexion_mysql())) {
+                $c = mysql_connect("localhost", "pepe", "pepa");
+    mysql_select_db("concursoQuiz", $c);
+    if ($c) {
+        if (mysql_select_db("concursoQuiz", $c)) {
             $q1 = mysql_query("SELECT distinct(usuario), correctas FROM respuestas
             ORDER BY correctas DESC, tiempo ASC
-            LIMIT 5;", conexion_mysql());
+            LIMIT 5", conexion_mysql());
+                        return $q1;
         }
     }
 }

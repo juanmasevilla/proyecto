@@ -10,7 +10,6 @@ if (isset($_GET['reg_usuario']) == 'true' && isset($_GET['reg_clave']) == 'true'
     if(insertarUs($_GET['reg_usuario'], $_GET['reg_clave'])=='true'){
         header('Location: index.php');
     }else{
-        header('Location: vista_registro.php');
         echo "El usuario ya existe";
     }
 }
@@ -122,6 +121,8 @@ fclose($f7);
 function saberMejores(){
     $mejor=mejores();
     echo "<br><h1>LOS MEJORES RESULTADOS SON:</h1>";
+    echo $mejor;
+    echo "a";
 echo "<table align=center border=2>";
 while ($registro = mysql_fetch_row($mejor)){
        echo "<tr>";
