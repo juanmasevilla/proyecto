@@ -13,3 +13,53 @@ img{
     height: 400px;
     width: 400px;
 }
+#menu>ul>li>ul ul {
+	display:none;
+}
+#menu>ul>li>span {
+	color: #FFF;
+	background-color: #399;
+}
+#menu>ul>li>span:hover {
+	background-color: #6CC;
+	color: #000;
+}
+#menu ul>li>ul>li>span {
+	background-color: #6CC;
+	color: #000;
+}
+#menu ul>li>ul>li>span:hover {
+	background-color: #399;
+	color: #FFF;
+}
+#menu span {
+	display: block;
+	border: solid 1px #fff;
+	padding: 8px;
+}
+#menu ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+#menu li {
+	width: 162px;
+}
+#menu>ul>li {
+	float:left;
+}
+#menu>ul>li>ul {
+	display: none;
+}
+#menu>ul>li:hover>ul {
+	display: block;
+        position: absolute;
+        bottom: 38px;
+}
+#menu {
+        position: re;
+	margin:auto; 
+	width:810px;
+        bottom: 0px;
+        margin-right: 20%; 
+}

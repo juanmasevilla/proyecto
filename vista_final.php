@@ -19,7 +19,12 @@
             <p>PREGUNTA 4, RESPUESTA <?php echo $_SESSION['p4'] ?> C/I: <?php echo $_SESSION['r4'] ?></p>
             <p>PREGUNTA 5, RESPUESTA <?php echo $_SESSION['p5'] ?> C/I: <?php echo $_SESSION['r5'] ?></p>
             <p class="horizontal">-----------------------------------</p>
-            <?php saberMejores()?>
+            <h1>LOS MEJORES RESULTADOS SON:</h1>
+            <div id="menu">
+                <?php saberMejores()?>
+            </div>
+            <p class="horizontal">-----------------------------------</p>
+            <p class="derecha"><a href="index.php" >Volver</a></p>
         </div>
     </body>
 </html>

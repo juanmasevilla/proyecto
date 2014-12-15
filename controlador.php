@@ -2,14 +2,14 @@
 
 require('modelo.php');
 
-$titulo="Concurso de preguntas";
+$titulo = "Concurso de preguntas";
 $pregunta = "¿Donde se encuentra este monumento?";
 $opciones = array("MADRID", "ANDALUCIA", "NAVARRA", "MURCIA", "GALICIA");
 
 if (isset($_GET['reg_usuario']) == 'true' && isset($_GET['reg_clave']) == 'true') {
-    if(insertarUs($_GET['reg_usuario'], $_GET['reg_clave'])=='true'){
+    if (insertarUs($_GET['reg_usuario'], $_GET['reg_clave']) == 'true') {
         header('Location: index.php');
-    }else{
+    } else {
         echo "El usuario ya existe";
     }
 }
@@ -22,114 +22,115 @@ if (isset($_GET['usuario']) == 'true' && isset($_GET['clave']) == 'true') {
         $_SESSION['clave'] = $_GET['clave'];
         $_SESSION['fallos'] = 0;
         $_SESSION['aciertos'] = 0;
-        $_SESSION['tiempo1']=time();
+        $_SESSION['tiempo1'] = time();
         header('Location: vista_p1.php');
-    }else if ($u == 'false'){
+    } else if ($u == 'false') {
         header('Location: vista_registro.php');
-    }else if($u == 'true' && $c == 'false'){
+    } else if ($u == 'true' && $c == 'false') {
         header('Location: index.php');
     }
 }
 
-if (isset($_GET['p1']) == 'true'){
+if (isset($_GET['p1']) == 'true') {
     $_SESSION['p1'] = $_GET['p1'];
-$_SESSION['r1']='i';
-if ($_SESSION['p1'] == "MADRID") {
-    $_SESSION['aciertos']++;
-    $_SESSION['r1']='c';
-} else {
-    $_SESSION['fallos']++;
-}
-header('Location: vista_p2.php');
-}
-
-if (isset($_GET['p2']) == 'true'){
-$_SESSION['p2'] = $_GET['p2'];
-$_SESSION['r2']='i';
-if ($_SESSION['p2'] == "NAVARRA") {
-    $_SESSION['aciertos']++;
-    $_SESSION['r2']='c';
-} else {
-    $_SESSION['fallos']++;
-}
-header('Location: vista_p3.php');
+    $_SESSION['r1'] = 'i';
+    if ($_SESSION['p1'] == "MADRID") {
+        $_SESSION['aciertos'] ++;
+        $_SESSION['r1'] = 'c';
+    } else {
+        $_SESSION['fallos'] ++;
+    }
+    header('Location: vista_p2.php');
 }
 
-if (isset($_GET['p3']) == 'true'){
+if (isset($_GET['p2']) == 'true') {
+    $_SESSION['p2'] = $_GET['p2'];
+    $_SESSION['r2'] = 'i';
+    if ($_SESSION['p2'] == "NAVARRA") {
+        $_SESSION['aciertos'] ++;
+        $_SESSION['r2'] = 'c';
+    } else {
+        $_SESSION['fallos'] ++;
+    }
+    header('Location: vista_p3.php');
+}
+
+if (isset($_GET['p3']) == 'true') {
     $_SESSION['p3'] = $_GET['p3'];
-$_SESSION['r3']='i';
-if ($_SESSION['p3'] == "GALICIA") {
-    $_SESSION['aciertos']++;
-    $_SESSION['r3']='c';
-} else {
-    $_SESSION['fallos']++;
-}
-header('Location: vista_p4.php');
+    $_SESSION['r3'] = 'i';
+    if ($_SESSION['p3'] == "GALICIA") {
+        $_SESSION['aciertos'] ++;
+        $_SESSION['r3'] = 'c';
+    } else {
+        $_SESSION['fallos'] ++;
+    }
+    header('Location: vista_p4.php');
 }
 
-if (isset($_GET['p4']) == 'true'){
+if (isset($_GET['p4']) == 'true') {
     $_SESSION['p4'] = $_GET['p4'];
-$_SESSION['r4']='i';
-if ($_SESSION['p4'] == "MURCIA") {
-    $_SESSION['aciertos']++;
-    $_SESSION['r4']='c';
-} else {
-    $_SESSION['fallos']++;
-}
-header('Location: vista_p5.php');
+    $_SESSION['r4'] = 'i';
+    if ($_SESSION['p4'] == "MURCIA") {
+        $_SESSION['aciertos'] ++;
+        $_SESSION['r4'] = 'c';
+    } else {
+        $_SESSION['fallos'] ++;
+    }
+    header('Location: vista_p5.php');
 }
 
-if (isset($_GET['p5']) == 'true'){
+if (isset($_GET['p5']) == 'true') {
     $_SESSION['p5'] = $_GET['p5'];
-$_SESSION['r5']='i';
-if ($_SESSION['p5'] == "ANDALUCIA") {
-    $_SESSION['aciertos']++;
-    $_SESSION['r5']='c';
+    $_SESSION['r5'] = 'i';
+    if ($_SESSION['p5'] == "ANDALUCIA") {
+        $_SESSION['aciertos'] ++;
+        $_SESSION['r5'] = 'c';
+    } else {
+        $_SESSION['fallos'] ++;
+    }
+    $_SESSION['tiempo2'] = time();
+    $_SESSION['tiempoTotal'] = $_SESSION['tiempo2'] - $_SESSION['tiempo1'];
 
-} else {
-    $_SESSION['fallos']++;
-}
-$_SESSION['tiempo2']=time();
-    $_SESSION['tiempoTotal']=$_SESSION['tiempo2']-$_SESSION['tiempo1'];
-
-    $p=insertar();
+    $p = insertar();
     echo $p;
-    if($p=='true'){
+    if ($p == 'true') {
         guardaFichero();
         echo "<h1> SE HA GUARDADO LA PARTIDA</h1>";
-    }else{
-         echo "<h1> ERROR: NO SE HA GUARDADO LA PARTIDA</h1>";
+    } else {
+        echo "<h1> ERROR: NO SE HA GUARDADO LA PARTIDA</h1>";
     }
-header('Location: vista_final.php');
+    header('Location: vista_final.php');
 }
 
-
-function guardaFichero(){
+function guardaFichero() {
     $f7 = fopen("partidas.txt", "a");
-fwrite($f7, "usuario: " . $_SESSION['usuario']."<br>");
-fwrite($f7,"correctas: " . $correctas."<br>");
-fwrite($f7,"incorrectas: " . $incorrectas."<br>");
-fwrite($f7,"PREGUNTA 1, RESPUESTA ".$_SESSION['p1']." C/I: ". $p1."<br>");
-fwrite($f7,"PREGUNTA 2, RESPUESTA ".$_SESSION['p2']." C/I: ". $p2."<br>");
-fwrite($f7,"PREGUNTA 3, RESPUESTA ".$_SESSION['p3']." C/I: ". $p3."<br>");
-fwrite($f7,"PREGUNTA 4, RESPUESTA ".$_SESSION['p4']." C/I: ". $p4."<br>");
-fwrite($f7,"PREGUNTA 5, RESPUESTA ".$_SESSION['p5']." C/I: ". $p5."<br>");
-fwrite($f7,"----------------------------------------------"."<br>");
-fclose($f7);
+    fwrite($f7, "usuario: " . $_SESSION['usuario'] . "<br>");
+    fwrite($f7, "correctas: " . $correctas . "<br>");
+    fwrite($f7, "incorrectas: " . $incorrectas . "<br>");
+    fwrite($f7, "PREGUNTA 1, RESPUESTA " . $_SESSION['p1'] . " C/I: " . $p1 . "<br>");
+    fwrite($f7, "PREGUNTA 2, RESPUESTA " . $_SESSION['p2'] . " C/I: " . $p2 . "<br>");
+    fwrite($f7, "PREGUNTA 3, RESPUESTA " . $_SESSION['p3'] . " C/I: " . $p3 . "<br>");
+    fwrite($f7, "PREGUNTA 4, RESPUESTA " . $_SESSION['p4'] . " C/I: " . $p4 . "<br>");
+    fwrite($f7, "PREGUNTA 5, RESPUESTA " . $_SESSION['p5'] . " C/I: " . $p5 . "<br>");
+    fwrite($f7, "----------------------------------------------" . "<br>");
+    fclose($f7);
 }
 
-function saberMejores(){
-    $mejor=mejores();
-    echo "<br><h1>LOS MEJORES RESULTADOS SON:</h1>";
-    echo $mejor;
-    echo "a";
-echo "<table align=center border=2>";
-while ($registro = mysql_fetch_row($mejor)){
-       echo "<tr>";
-       foreach($registro  as $clave){
-       echo "<td>",$clave,"</td>";
- }
-}
+function saberMejores() {
+    $mejor = mejores();
+    while ($registro = mysql_fetch_row($mejor)) {
+        $user = false;
+        echo "<ul><li>";
+        foreach ($registro as $clave) {
+            if ($user) {
+                echo "<ul><li><span>", $clave, "</span></li></ul>";
+            } else {
+                echo "<span>", $clave, "</span>";
+                $user = true;
+            }
+        }
+        echo "</li></ul>";
+    }
 }
 
 ?>
